@@ -39,7 +39,7 @@ const ExamForm = ({
     resolver: zodResolver(examSchema),
   });
 
-  // AFTER REACT 19 IT'LL BE USEACTIONSTATE
+ 
 
   const [state, formAction] = useFormState(
     type === "create" ? createExam : updateExam,
@@ -63,6 +63,7 @@ const ExamForm = ({
       router.refresh();
     }
   }, [state, router, type, setOpen]);
+  
 
   const { lessons } = relatedData;
 

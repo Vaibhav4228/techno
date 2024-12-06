@@ -1,13 +1,13 @@
 version: '3.8'
 
 services:
-  postgress:
-    image: postgres:15
+  postgres:
+    image: postgres:17
     container_name: postgres_db
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydb
+      POSTGRES_USER: vaibhav
+      POSTGRES_PASSWORD: vaibhav123
+      POSTGRES_DB: school
     ports:
       - '5432:5432'
     volumes:
@@ -19,7 +19,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - DATABASE_URL: postgresql://myuser:mypassword@[YOUR_SERVER_IP]:5432/mydb
+      DATABASE_URL: postgresql://vaibhav:vaibhav123@postgres_db:5432/school
     depends_on:
       - postgres
 
