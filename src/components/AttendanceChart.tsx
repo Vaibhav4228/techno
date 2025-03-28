@@ -14,6 +14,7 @@ import {
 
 const AttendanceChart = ({
   data,
+  
 }: {
   data: { name: string; present: number; absent: number }[];
 }) => {

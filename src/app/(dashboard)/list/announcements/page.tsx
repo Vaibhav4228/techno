@@ -8,14 +8,17 @@ import { Announcement, Class, Prisma } from "@prisma/client";
 import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
 
-
 type AnnouncementList = Announcement & { class: Class };
 const AnnouncementListPage = async ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | undefined };
 }) => {
-  
+
+  // const{} = async() => {
+  //   const{userId , sesssionClam} = auth();
+  //     const
+  // }
   const { userId, sessionClaims } = auth();
   const role = (sessionClaims?.metadata as { role?: string })?.role;
   const currentUserId = userId;
@@ -24,6 +27,7 @@ const AnnouncementListPage = async ({
     {
       header: "Title",
       accessor: "title",
+      
     },
     {
       header: "Class",
@@ -34,6 +38,7 @@ const AnnouncementListPage = async ({
       accessor: "date",
       className: "hidden md:table-cell",
     },
+    
     ...(role === "admin"
       ? [
           {

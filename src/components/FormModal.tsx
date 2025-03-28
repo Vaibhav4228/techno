@@ -1,6 +1,4 @@
 "use client";
-
-
 import {
   deleteClass,
   deleteExam,
@@ -22,7 +20,7 @@ const deleteActionMap = {
   teacher: deleteTeacher,
   student: deleteStudent,
   exam: deleteExam,
-// TODO: OTHER DELETE ACTIONS
+
   parent: deleteSubject,
   lesson: deleteSubject,
   assignment: deleteSubject,
@@ -31,11 +29,6 @@ const deleteActionMap = {
   event: deleteSubject,
   announcement: deleteSubject,
 };
-
-// USE LAZY LOADING
-
-// import TeacherForm from "./forms/TeacherForm";
-// import StudentForm from "./forms/StudentForm";
 
 const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
   loading: () => <h1>Loading...</h1>,
@@ -52,7 +45,7 @@ const ClassForm = dynamic(() => import("./forms/ClassForm"), {
 const ExamForm = dynamic(() => import("./forms/ExamForm"), {
   loading: () => <h1>Loading...</h1>,
 });
-// TODO: OTHER FORMS
+
 
 const forms: {
   [key: string]: (
